@@ -1,17 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {createContext} from 'react';
 import CheckUseReducer from './components/useReducer';
 import CheckUseMemo from './components/useMemo';
 import CheckUseEffect from './components/useEffect';
+import CheckUseContext from './components/useContext';
+
+export const UserContext = createContext()
 
 function App() {
-  return (
-    <div className="App">
-      {/* <CheckUseReducer /> */}
-      <CheckUseMemo/>
-      {/* <CheckUseEffect/> */}
 
-    </div>
+  const userValue = 'Chamath'
+
+  return (
+    <UserContext.Provider value={userValue}>
+      {/* <CheckUseReducer /> */}
+      {/* <CheckUseMemo/> */}
+      {/* <CheckUseEffect/> */}
+      <CheckUseContext />
+    </UserContext.Provider>
   );
 }
 
